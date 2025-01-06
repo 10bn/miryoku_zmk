@@ -1,7 +1,7 @@
 # Copyright 2024 Manna Harbour
 # https://github.com/manna-harbour/miryoku
 
-name: 'Build Example mousekeyspr for Puchi BLE with Clipboard and Tap Delay'
+name: 'My-Config'
 on: workflow_dispatch
 jobs:
   build:
@@ -10,6 +10,7 @@ jobs:
     with:
       board: '["puchi_ble_v1"]'
       shield: '["humla"]'
-      keymap: '["qwerty"]'
-      custom_config: '["#define MIRYOKU_KLUDGE_MOUSEKEYSPR", "#define MIRYOKU_CLIPBOARD_MAC", "#define MIRYOKU_KLUDGE_TAPDELAY"]'
+      alphas: '["qwerty"]'  # Correct field for keymap
+      custom_config: '["#define MIRYOKU_KLUDGE_MOUSEKEYSPR", "#define MIRYOKU_CLIPBOARD_MAC"]'
+      kconfig: '["CONFIG_ZMK_MOUSE=y", "CONFIG_ZMK_CLIPBOARD_MAC=y"]'
       branches: '["petejohanson/zmk/feat/pointers-move-scroll","zmkfirmware/zmk/main petejohanson/zmk/feat/pointers-move-scroll"]'
